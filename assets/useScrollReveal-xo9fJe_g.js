@@ -1,0 +1,1 @@
+import{a as e}from"./rolldown-runtime-CNC7AqOf.js";import{a as t,t as n}from"./vendor-motion-BdlrNaR5.js";var r=e(t(),1);function i(e={}){let t=(0,r.useRef)(null);return{ref:t,isInView:n(t,{once:!0,margin:`-100px`,...e})}}export{i as t};
