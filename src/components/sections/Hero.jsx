@@ -1,37 +1,57 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } from 'shaders/react';
 import TextRoll from '../ui/TextRoll';
+
+function ShaderBackground() {
+  const [ShaderComponents, setShaderComponents] = useState(null);
+
+  useEffect(() => {
+    import('shaders/react')
+      .then((mod) => setShaderComponents(mod))
+      .catch(() => setShaderComponents(null));
+  }, []);
+
+  if (!ShaderComponents) {
+    return <div className="absolute inset-0 bg-gradient-to-br from-abyssal via-slate-depth to-abyssal" />;
+  }
+
+  const { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } = ShaderComponents;
+
+  return (
+    <Shader style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+      <Swirl colorA="#0A1628" colorB="#020B18" detail={1.7} />
+      <ChromaFlow
+        baseColor="#020B18"
+        downColor="#00D4FF"
+        leftColor="#00D4FF"
+        rightColor="#F59E0B"
+        upColor="#00D4FF"
+        momentum={13}
+        radius={3.5}
+      />
+      <FlutedGlass
+        aberration={0.61}
+        angle={31}
+        frequency={8}
+        highlight={0.12}
+        highlightSoftness={0}
+        lightAngle={-90}
+        refraction={4}
+        shape="rounded"
+        softness={1}
+        speed={0.15}
+      />
+      <FilmGrain strength={0.05} />
+    </Shader>
+  );
+}
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col bg-abyssal">
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        <Shader>
-          <Swirl colorA="#0A1628" colorB="#020B18" detail={1.7} />
-          <ChromaFlow
-            baseColor="#020B18"
-            downColor="#00D4FF"
-            leftColor="#00D4FF"
-            rightColor="#F59E0B"
-            upColor="#00D4FF"
-            momentum={13}
-            radius={3.5}
-          />
-          <FlutedGlass
-            aberration={0.61}
-            angle={31}
-            frequency={8}
-            highlight={0.12}
-            highlightSoftness={0}
-            lightAngle={-90}
-            refraction={4}
-            shape="rounded"
-            softness={1}
-            speed={0.15}
-          />
-          <FilmGrain strength={0.05} />
-        </Shader>
+    <section className="relative min-h-screen flex flex-col bg-abyssal overflow-hidden">
+      <div className="absolute inset-0 z-10 pointer-events-none" style={{ width: '100%', height: '100%' }}>
+        <ShaderBackground />
       </div>
 
       <div className="flex-1" />

@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
+import WhatsAppButton from './components/ui/WhatsAppButton';
 import SectionSkeleton from './components/ui/SectionSkeleton';
 
 const About = lazy(() => import('./components/sections/About'));
@@ -17,6 +18,7 @@ export default function App() {
     <>
       <Navbar />
       <Hero />
+      <WhatsAppButton />
       <Suspense fallback={<SectionSkeleton />}>
         <About />
         <Stats />
