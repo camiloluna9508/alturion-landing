@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import TextRoll from '../ui/TextRoll';
 
 function ShaderBackground() {
   const [ShaderComponents, setShaderComponents] = useState(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const containerRef = useRef(null);
 
   useEffect(() => {
     import('shaders/react')
@@ -12,45 +14,68 @@ function ShaderBackground() {
       .catch(() => setShaderComponents(null));
   }, []);
 
-  if (!ShaderComponents) {
+  useEffect(() => {
+    const updateSize = () => {
+      setDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  if (!ShaderComponents || dimensions.width === 0) {
     return <div className="absolute inset-0 bg-gradient-to-br from-abyssal via-slate-depth to-abyssal" />;
   }
 
   const { Shader, Swirl, ChromaFlow, FlutedGlass, FilmGrain } = ShaderComponents;
 
   return (
-    <Shader style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
-      <Swirl colorA="#0A1628" colorB="#020B18" detail={1.7} />
-      <ChromaFlow
-        baseColor="#020B18"
-        downColor="#00D4FF"
-        leftColor="#00D4FF"
-        rightColor="#F59E0B"
-        upColor="#00D4FF"
-        momentum={13}
-        radius={3.5}
-      />
-      <FlutedGlass
-        aberration={0.61}
-        angle={31}
-        frequency={8}
-        highlight={0.12}
-        highlightSoftness={0}
-        lightAngle={-90}
-        refraction={4}
-        shape="rounded"
-        softness={1}
-        speed={0.15}
-      />
-      <FilmGrain strength={0.05} />
-    </Shader>
+    <div ref={containerRef} className="absolute inset-0">
+      <Shader
+        key={`${dimensions.width}x${dimensions.height}`}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: `${dimensions.width}px`,
+          height: `${dimensions.height}px`,
+        }}
+      >
+        <Swirl colorA="#0A1628" colorB="#020B18" detail={1.7} />
+        <ChromaFlow
+          baseColor="#020B18"
+          downColor="#00D4FF"
+          leftColor="#00D4FF"
+          rightColor="#F59E0B"
+          upColor="#00D4FF"
+          momentum={13}
+          radius={3.5}
+        />
+        <FlutedGlass
+          aberration={0.61}
+          angle={31}
+          frequency={8}
+          highlight={0.12}
+          highlightSoftness={0}
+          lightAngle={-90}
+          refraction={4}
+          shape="rounded"
+          softness={1}
+          speed={0.15}
+        />
+        <FilmGrain strength={0.05} />
+      </Shader>
+    </div>
   );
 }
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col bg-abyssal overflow-hidden">
-      <div className="absolute inset-0 z-10 pointer-events-none" style={{ width: '100%', height: '100%' }}>
+      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden">
         <ShaderBackground />
       </div>
 
