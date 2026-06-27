@@ -1,6 +1,7 @@
 export const departmentProjects = {
   'BOGOTÁ, D.C.': {
     name: 'Bogotá D.C.',
+    coord: '4.6097° N, 74.0817° W',
     projects: [
       {
         title: 'Infraestructura Aeroportuaria — El Dorado',
@@ -24,6 +25,7 @@ export const departmentProjects = {
   },
   'ANTIOQUIA': {
     name: 'Antioquia',
+    coord: '6.2518° N, 75.5636° W',
     projects: [
       {
         title: 'Obra Civil para Cámaras LPR',
@@ -41,6 +43,7 @@ export const departmentProjects = {
   },
   'BOLÍVAR': {
     name: 'Bolívar',
+    coord: '10.3910° N, 75.5144° W',
     projects: [
       {
         title: 'Implementación Sistema CCTV',
@@ -52,6 +55,7 @@ export const departmentProjects = {
   },
   'CÓRDOBA': {
     name: 'Córdoba',
+    coord: '8.7489° N, 75.8814° W',
     projects: [
       {
         title: 'Escuelas en Potencia 5G',
@@ -63,6 +67,7 @@ export const departmentProjects = {
   },
   'META': {
     name: 'Meta',
+    coord: '3.4216° N, 73.6536° W',
     projects: [
       {
         title: 'Planta Solar Flotante 1.350 KW',
@@ -96,6 +101,7 @@ export const departmentProjects = {
   },
   'TOLIMA': {
     name: 'Tolima',
+    coord: '4.4389° N, 75.2322° W',
     projects: [
       {
         title: 'Sede principal — Ibagué',

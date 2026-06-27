@@ -17,12 +17,18 @@ export const verticals = [
     icon: Building2,
     color: '#00D4FF',
     description:
-      'La base física de todo proyecto. Diseñamos y ejecutamos obras civiles especializadas para el despliegue de redes, con capacidad técnica para operar en todo tipo de terreno.',
+      'Diseño y ejecución de obra civil especializada para despliegue de redes de telecomunicaciones y energía, con capacidad para operar en todo tipo de terreno y condición geográfica.',
     capabilities: [
-      'Obra civil especializada',
-      'Canalización y postes',
-      'Mampostería y andenes',
-      'Cajas de inspección',
+      'Obra civil especializada RETIE',
+      'Canalización subterránea y postería',
+      'Mampostería estructural y andenes',
+      'Cajas de inspección tipo H',
+    ],
+    specs: [
+      { label: 'Capacidad operativa', value: '250+ km' },
+      { label: 'Normativa', value: 'NTC-RETIE' },
+      { label: 'Monitoreo', value: '24/7' },
+      { label: 'Respuesta', value: '≤ 4 horas' },
     ],
   },
   {
@@ -32,12 +38,18 @@ export const verticals = [
     icon: Zap,
     color: '#F59E0B',
     description:
-      'Diseño, construcción y operación de sistemas eléctricos que garantizan suministro confiable y eficiente, en cumplimiento de la normativa nacional.',
+      'Diseño, construcción y operación de sistemas eléctricos B.T / M.T y sistemas fotovoltaicos que garantizan suministro confiable bajo normativa RETIE.',
     capabilities: [
-      'Subestaciones eléctricas',
-      'Redes B.T y M.T',
-      'Energía solar fotovoltaica',
-      'Plantas solares flotantes',
+      'Subestaciones eléctricas 110kV / 34.5kV',
+      'Redes B.T y M.T certificadas',
+      'Sistemas fotovoltaicos on-grid / off-grid',
+      'Plantas solares flotantes ≥ 1.350 kWp',
+    ],
+    specs: [
+      { label: 'Capacidad instalada', value: '1.350+ kWp' },
+      { label: 'Certificación', value: 'ISO 9001' },
+      { label: 'Normativa', value: 'RETIE / RETILAP' },
+      { label: 'Tolerancia', value: '± 2.5%' },
     ],
   },
   {
@@ -47,12 +59,18 @@ export const verticals = [
     icon: Radio,
     color: '#00D4FF',
     description:
-      'Despliegue e integración de redes que conectan ciudades, empresas y territorios. Desde la fibra óptica hasta los sistemas de videovigilancia urbana.',
+      'Despliegue e integración de redes de fibra óptica monomodo, sistemas CCTV IP PoE+ y conectividad 5G Sub-6 GHz para ciudades, empresas y territorios.',
     capabilities: [
-      'Fibra óptica y empalmerería',
-      'CCTV y videovigilancia',
-      'Cableado estructurado',
-      'Conectividad 5G',
+      'Fibra óptica monomodo G.652D',
+      'CCTV IP PoE+ con analítica',
+      'Cableado estructurado Cat6A / Cat7',
+      'Conectividad 5G Sub-6 GHz',
+    ],
+    specs: [
+      { label: 'F.O desplegada', value: '2.847+ km' },
+      { label: 'Atenuación', value: '≤ 0.35 dB/km' },
+      { label: 'Certificación', value: 'OTDR / OLTS' },
+      { label: 'SLA uptime', value: '99.7%' },
     ],
   },
   {
@@ -62,12 +80,18 @@ export const verticals = [
     icon: Cpu,
     color: '#F59E0B',
     description:
-      'Integración tecnológica para entornos inteligentes, automatización industrial y gestión remota de infraestructura esencial.',
+      'Integración tecnológica para entornos inteligentes: iluminación DALI, semaforización AUCE, control de acceso biométrico y gestión remota SCADA.',
     capabilities: [
-      'Iluminación inteligente DALI',
-      'Semaforización AUCE',
-      'Control de acceso',
-      'Automatización industrial',
+      'Iluminación inteligente DALI / DALI-2',
+      'Semaforización AUCE certificada',
+      'Control de acceso biométrico',
+      'Automatización SCADA / IoT industrial',
+    ],
+    specs: [
+      { label: 'Protocolos', value: 'DALI-2 / BACnet' },
+      { label: 'Integración', value: 'SCADA / IoT' },
+      { label: 'Monitoreo', value: 'Tiempo real' },
+      { label: 'Respuesta', value: '≤ 2 horas' },
     ],
   },
 ];

@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import SectionBadge from '../ui/SectionBadge';
 import { pillars } from '../../data/services';
-import { Shield, CheckCircle, Leaf } from 'lucide-react';
+import { certifications } from '../../data/projects';
+import { Shield, CheckCircle, Leaf, BadgeCheck } from 'lucide-react';
 
 const ICONS = [Shield, CheckCircle, Leaf];
 const COLORS = ['#00D4FF', '#F59E0B', '#34D399'];
@@ -61,10 +62,34 @@ export default function Commitment() {
           })}
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 p-6 bg-slate-depth rounded-2xl border border-blueprint"
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <BadgeCheck size={16} className="text-electric-cyan" />
+            <span className="font-mono text-[10px] text-steel-gray/50 tracking-widest">
+              CERTIFICACIONES Y MARCOS NORMATIVOS
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {certifications.map((cert) => (
+              <span
+                key={cert}
+                className="px-3 py-1.5 rounded-full border border-blueprint text-[11px] font-mono text-steel-gray/70 hover:border-electric-cyan/30 hover:text-electric-cyan transition-colors duration-200"
+              >
+                {cert}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.blockquote
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-12 sm:mt-16 text-steel-gray italic text-[17px] sm:text-[19px] max-w-3xl border-l-2 border-electric-cyan pl-6 leading-relaxed"
         >
           "Más que entregar soluciones, construimos relaciones basadas en

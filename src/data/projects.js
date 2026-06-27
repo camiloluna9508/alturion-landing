@@ -167,8 +167,17 @@ export const projects = [
 ];
 
 export const stats = [
-  { value: 17, suffix: '+', label: 'Años de experiencia' },
-  { value: 18000, prefix: '$', suffix: 'M+', label: 'En proyectos desarrollados' },
-  { value: 20, suffix: '+', label: 'Departamentos con cobertura' },
-  { value: 40, suffix: '+', label: 'Proyectos de referencia ejecutados' },
+  { value: 2847, suffix: '+', unit: 'km', label: 'Fibra óptica monomodo desplegada' },
+  { value: 18000, prefix: '$', suffix: 'M', unit: 'COP', label: 'En proyectos ejecutados' },
+  { value: 16, suffix: '+', unit: 'dptos', label: 'Departamentos con cobertura operativa' },
+  { value: 40, suffix: '+', unit: 'proy', label: 'Proyectos de referencia ejecutados' },
+];
+
+export const certifications = [
+  'ISO 9001:2015',
+  'ISO 45001:2018',
+  'ISO 14001:2015',
+  'NTC-RETIE',
+  'SG-SST',
+  'PMBOK',
 ];

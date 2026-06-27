@@ -68,8 +68,9 @@ export default function Navbar() {
             </div>
 
             <div className="hidden md:flex items-center gap-4">
-              <span className="text-[13px] text-steel-gray hidden lg:block">
-                Proyectos activos Q1 2026
+              <span className="text-[13px] text-steel-gray hidden lg:flex items-center gap-2">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
+                3 proyectos activos
               </span>
               <LiveClock />
               <a

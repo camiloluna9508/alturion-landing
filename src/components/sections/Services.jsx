@@ -23,16 +23,16 @@ function VerticalCard({ vertical, index, image }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group cursor-pointer"
     >
-      <div className="relative aspect-[329/246] rounded-2xl overflow-hidden">
+      <div className="relative aspect-[329/246] rounded-t-2xl overflow-hidden">
         <img
           src={image}
           alt={vertical.title}
           loading="lazy"
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-abyssal/80 via-abyssal/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-carbon-glass via-carbon-glass/40 to-transparent" />
         <div className="absolute top-4 left-4 flex items-center gap-2">
-          <span className="font-mono text-3xl font-bold text-ice-white/20">{vertical.number}</span>
+          <span className="font-mono text-5xl font-bold text-ice-white/20">{vertical.number}</span>
           <Icon size={20} style={{ color: vertical.color }} />
         </div>
 
@@ -46,12 +46,26 @@ function VerticalCard({ vertical, index, image }) {
         </div>
       </div>
 
-      <p className="text-[13px] sm:text-[14px] text-steel-gray mt-4 leading-relaxed">
-        {vertical.description}
-      </p>
-      <h3 className="text-[14px] sm:text-[15px] font-semibold text-ice-white mt-1">
-        {vertical.title}
-      </h3>
+      <div className="p-6 bg-carbon-glass rounded-b-2xl border border-t-0 border-blueprint group-hover:border-electric-cyan/20 transition-colors duration-300">
+        <h3 className="text-xl font-semibold mb-3">{vertical.title}</h3>
+        <p className="text-steel-gray text-sm leading-relaxed mb-4">{vertical.description}</p>
+
+        {vertical.specs && (
+          <div className="border-t border-blueprint/50 pt-4 mt-4">
+            <p className="font-mono text-[10px] text-steel-gray/40 tracking-widest mb-3">
+              ━━ ESPECIFICACIONES
+            </p>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+              {vertical.specs.map((spec) => (
+                <div key={spec.label} className="flex justify-between items-baseline gap-1">
+                  <span className="font-mono text-[10px] text-steel-gray/50 truncate">{spec.label}</span>
+                  <span className="font-mono text-[11px] text-electric-cyan font-medium">{spec.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
     </motion.div>
   );
 }
@@ -89,7 +103,7 @@ export default function Services() {
           </div>
           <h3 className="text-xl font-medium text-ice-white mb-2">Servicios Profesionales</h3>
           <p className="text-steel-gray text-sm mb-8 max-w-2xl leading-relaxed">
-            Acompañamos el ciclo completo con capacidad técnica propia para diseñar, supervisar y auditar.
+            Acompañamos el ciclo completo con capacidad técnica propia para diseñar, supervisar y auditar bajo estándares ISO y normativa colombiana vigente.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {professionalServices.map((service) => {

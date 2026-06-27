@@ -31,6 +31,9 @@ function ProjectPanel({ department, data, onClose }) {
           </button>
         </div>
 
+        {data.coord && (
+          <p className="text-[10px] font-mono text-steel-gray/40 mb-2">{data.coord}</p>
+        )}
         <p className="text-[12px] font-mono text-electric-cyan tracking-wider mb-4">
           {data.projects.length} PROYECTO{data.projects.length > 1 ? 'S' : ''} EJECUTADO{data.projects.length > 1 ? 'S' : ''}
         </p>
@@ -215,9 +218,14 @@ export default function ColombiaMap() {
                   </span>
                 </div>
                 {hoveredData ? (
-                  <p className="text-[11px] text-electric-cyan font-mono mt-1">
-                    {hoveredData.projects.length} proyecto{hoveredData.projects.length > 1 ? 's' : ''} — Click para ver
-                  </p>
+                  <>
+                    {hoveredData.coord && (
+                      <p className="text-[10px] text-steel-gray/40 font-mono mt-1">{hoveredData.coord}</p>
+                    )}
+                    <p className="text-[11px] text-electric-cyan font-mono mt-0.5">
+                      {hoveredData.projects.length} proyecto{hoveredData.projects.length > 1 ? 's' : ''} — Click para ver
+                    </p>
+                  </>
                 ) : (
                   <p className="text-[11px] text-steel-gray/60 font-mono mt-1">Sin proyectos registrados</p>
                 )}
