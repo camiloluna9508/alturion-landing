@@ -173,4 +173,3 @@ npm run deploy    # Build + deploy a GitHub Pages
 - **Empresa:** Alturion — Ingeniería integral de nueva generación
 - **GeoJSON:** [caticoa3/colombia_mapa](https://github.com/caticoa3/colombia_mapa) (Departamentos de Colombia 2018)
 - **Imágenes placeholder:** [Unsplash](https://unsplash.com) (reemplazar con fotos propias)
-- **Desarrollo asistido por:** Claude Sonnet 4.6 (Anthropic)
